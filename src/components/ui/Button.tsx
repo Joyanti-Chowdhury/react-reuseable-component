@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, DetailedHTMLProps, HTMLAttributes, forwardRef } from 'react';
+import React, { ButtonHTMLAttributes, Children, DetailedHTMLProps, HTMLAttributes, forwardRef } from 'react';
 import {twMerge} from "tailwind-merge";
 import { clsx } from 'clsx';
 import cn from '../../utils/cn';
@@ -14,7 +14,7 @@ type TButtonOption = {
 type TButton = DetailedHTMLProps<ButtonHTMLAttributes <HTMLButtonElement>,HTMLButtonElement> & TButtonOption
 
 
-const Button = forwardRef<TRef, TButton>(({className,variant ='solid' ,...rest}, ref) => {
+const Button = forwardRef<TRef, TButton>(({className,variant ='solid' , children, ...rest}, ref) => {
    
 
 
@@ -32,7 +32,7 @@ const Button = forwardRef<TRef, TButton>(({className,variant ='solid' ,...rest},
 
 
     return (
-        <button {...rest} ref={ref} className={cn(getVariant(variant) ,  className )}> click </button>
+        <button {...rest} ref={ref} className={cn(getVariant(variant) ,  className )}> {children} </button>
   
 
                             
